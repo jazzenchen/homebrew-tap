@@ -13,7 +13,7 @@ cask "agent-hud" do
 
   # The app updates itself; .github/workflows/bump.yml moves this file to each new release.
   auto_updates true
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Agent HUD.app"
 
