@@ -1,0 +1,38 @@
+name: Bump agent-hud
+
+# Moves the cask to the newest Agent HUD release. Runs every six hours; after
+# publishing a release, `gh workflow run bump.yml --repo jazzenchen/homebrew-tap`
+# moves it at once.
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bump
+  cancel-in-progress: false
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node .github/scripts/bump-agent-hud.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Commit the new version
+        run: |
+          if git diff --quiet; then
+            exit 0
+          fi
+          version=$(sed -n 's/^  version "\(.*\)"$/\1/p' Casks/agent-hud.rb)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "agent-hud ${version}"
+          git push
