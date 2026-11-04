@@ -5,8 +5,7 @@ cask "agent-hud" do
   sha256 arm:   "74f0ad0bbdefa48784304a6a8fa1331334312d4fec3298c056a5b121e07f1df2",
          intel: "26e4e0c8659aecc934d5aead813ad811433bca86decc520ee50b2c20dd19f7e4"
 
-  url "https://github.com/jazzenchen/agent-hud-open/releases/download/v#{version}/Agent-HUD-#{version}-#{arch}.dmg",
-      verified: "github.com/jazzenchen/agent-hud-open/"
+  url "https://github.com/jazzenchen/agent-hud-open/releases/download/v#{version}/Agent-HUD-#{version}-#{arch}.dmg"
   name "Agent HUD"
   desc "Quotas, tokens and live sessions of AI coding agents at the screen's edge"
   homepage "https://agenthud.app/"
