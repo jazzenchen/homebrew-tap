@@ -1,9 +1,9 @@
 cask "agent-hud" do
   arch arm: "arm64", intel: "x86_64"
 
-  version "0.6.5"
-  sha256 arm:   "e217caa310847bd61db3d22625b479d9ea5ec4bcf040de1dab408100302777e3",
-         intel: "274681188588fc570b3c9cd41a8d0bf167a3fa343ef75bcd8e83ba306c6573d3"
+  version "0.6.6"
+  sha256 arm:   "250b5d1446f06b688709a8bedcdf974ae426162ed9264641b1db3b80b2cb0a9a",
+         intel: "0d53cde0b19c2e9533cdf41c80ceffeb71bafbed982ee70ca6272478daa1f5ce"
 
   url "https://github.com/jazzenchen/agent-hud-open/releases/download/v#{version}/Agent-HUD-#{version}-#{arch}.dmg"
   name "Agent HUD"
